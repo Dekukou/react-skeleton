@@ -1,0 +1,28 @@
+import { Box, Container } from '@mui/material';
+import Header from '../Header';
+import { Suspense } from 'react';
+import RouterLoading from '@/router/RouterLoading';
+import { Outlet } from 'react-router-dom';
+
+const Layout = () => {
+  return (
+    <Box
+      display="flex"
+      flexDirection="column"
+      minHeight="100vh"
+      position="relative"
+    >
+      <Header />
+      <Box id="main-content" pt={2} flexGrow={1} pb="50px">
+        <Container maxWidth="xl">
+          <Suspense fallback={<RouterLoading />}>
+            <Outlet />
+          </Suspense>
+        </Container>
+      </Box>
+      {/* TODO footer */}
+    </Box>
+  );
+};
+
+export default Layout;
