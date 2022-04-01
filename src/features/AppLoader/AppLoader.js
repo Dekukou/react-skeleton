@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { Box, Fade } from '@mui/material';
 import useStore from '@/store/useStore';
-import logo from '@/images/react.png';
+import logo from '@/assets/imgs/react.png';
 import * as S from './styles';
 
 const AppLoader = ({ delay }) => {

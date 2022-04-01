@@ -20,13 +20,14 @@ const generateTheme = (paletteType) => {
 
   const theme = {
     breakpoints: {
-      keys: ['xs', 'sm', 'md', 'lg', 'xl'],
+      keys: ['xs', 'sm', 'md', 'lg', 'xl', 'xxl'],
       values: {
         xs: 0,
         sm: 600,
         md: 960,
         lg: 1280,
         xl: 1920,
+        xxl: 2560,
       },
     },
     navigation: {
@@ -36,6 +37,7 @@ const generateTheme = (paletteType) => {
     palette: {
       mode: paletteType,
       background: {
+        dark: '#121212',
         default: paletteType === 'dark' ? '#121212' : '#f0f2f5',
       },
       common: {

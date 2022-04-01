@@ -8,7 +8,7 @@ import {
   List,
   ListItem,
 } from '@mui/material';
-import logo from '@/images/react.png';
+import logo from '@/assets/imgs/react.png';
 import { NavLink as RRNavLink } from 'react-router-dom';
 import DarkThemeToggle from '../DarkThemeToggle';
 
@@ -36,9 +36,9 @@ const Navbar = () => {
   return (
     <AppBar position="static" color="inherit">
       <Toolbar variant="dense">
-        <div>
-          <img src={logo} alt="logo" height="50" />
-        </div>
+        <NavLink to="/">
+          <img src={logo} alt="logo" height="40px" />
+        </NavLink>
         <Box flexGrow={1}>
           <List
             sx={{
@@ -48,9 +48,9 @@ const Navbar = () => {
               },
             }}
           >
-            <ListItem>
+            {/* <ListItem>
               <NavLink to="/">Home</NavLink>
-            </ListItem>
+            </ListItem> */}
           </List>
         </Box>
         <DarkThemeToggle />

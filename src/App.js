@@ -11,7 +11,7 @@ import { QueryClient, QueryClientProvider } from 'react-query';
 import AppRouter from './router/AppRouter';
 import useStore from './store/useStore';
 import generateTheme from './theme';
-import AppLoader from './components/AppLoader/AppLoader';
+import AppLoader from './features/AppLoader/AppLoader';
 import { getAccessToken } from './utils/access_token';
 import history from './router/browserHistory';
 
@@ -36,25 +36,23 @@ const App = () => {
   }, []);
 
   return (
-    <Suspense fallback={<></>}>
-      <StyledEngineProvider injectFirst>
-        <ThemeProvider theme={theme}>
-          <CssBaseline />
-          {loading ? (
-            <AppLoader />
-          ) : (
-            <>
-              <QueryClientProvider client={queryClient}>
-                <LocalizationProvider dateAdapter={AdapterDayjs}>
-                  <AppRouter />
-                </LocalizationProvider>
-              </QueryClientProvider>
-              <ToastContainer theme={darkTheme ? 'dark' : 'light'} limit={3} />
-            </>
-          )}
-        </ThemeProvider>
-      </StyledEngineProvider>
-    </Suspense>
+    <StyledEngineProvider injectFirst>
+      <ThemeProvider theme={theme}>
+        <CssBaseline />
+        {loading ? (
+          <AppLoader />
+        ) : (
+          <>
+            <QueryClientProvider client={queryClient}>
+              <LocalizationProvider dateAdapter={AdapterDayjs}>
+                <AppRouter />
+              </LocalizationProvider>
+            </QueryClientProvider>
+            <ToastContainer theme={darkTheme ? 'dark' : 'light'} limit={3} />
+          </>
+        )}
+      </ThemeProvider>
+    </StyledEngineProvider>
   );
 };
 

@@ -1,6 +1,7 @@
 import React, { lazy } from 'react';
 import { BrowserRouter as Router, Link, Route, Routes } from 'react-router-dom';
 import Layout from '@/layout/Layout';
+import AuthLayout from '@/layout/AuthLayout';
 import RequireAuth from './RequireAuth';
 import PublicRoutesWrapper from './PublicRoutesWrapper';
 
@@ -9,9 +10,9 @@ const Home = lazy(() => import('@/pages/Home'));
 
 const publicRoutes = () => (
   <Route element={<PublicRoutesWrapper />}>
-    {/* <Route path="/" element={<Layout />}> */}
-    <Route path="/login" element={<Login />} />
-    {/* </Route> */}
+    <Route element={<AuthLayout />}>
+      <Route path="/login" element={<Login />} />
+    </Route>
   </Route>
 );
 
